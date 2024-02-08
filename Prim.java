@@ -7,15 +7,7 @@ class Item implements Comparable<Item>{
         index=b;
     }
     public int compareTo(Item item){
-        if(this.value<item.value){
-            return -1;
-        }
-        if(this.value>item.value){
-            return 1;
-        }
-        else{
-            return 0;
-        }
+        return (this.value-item.value);
     }
     public String toString(){
         return index+" "+value;
