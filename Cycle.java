@@ -2,6 +2,23 @@ import java.util.*;
 
 public class Cycle {
     static int[][] graph;
+    public static Set<Integer> dfs(int a){
+        Set<Integer> al=new TreeSet<>();
+        Stack<Integer> st=new Stack<>();
+        st.push(a);
+        boolean vis[]=new boolean[graph.length];
+        while(!st.isEmpty()){
+            int v=st.pop();
+            al.add(v);
+            vis[v]=true;
+            for(int i=0;i<graph.length;i++){
+                if(graph[v][i]>0&&!vis[i]){
+                    st.push(i);
+                }
+            }
+        }
+        return al;
+    }
     public static boolean cycle(){
         Queue<Integer> qu=new LinkedList<Integer>();
         boolean vis[]=new boolean[graph.length];
@@ -50,5 +67,8 @@ public class Cycle {
 		formGraph(4,8,8);
 		formGraph(5,6,10);
         System.out.println(cycle());
+        for(int i=0;i<graph.length;i++){
+            System.out.println(dfs(i));
+        }
     }
 }
