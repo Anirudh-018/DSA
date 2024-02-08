@@ -82,8 +82,6 @@ public class Kruskal
                 c++;
             }
         }
-        System.out.println(st);
-        System.out.println(end);
         System.out.println(cost);
 	}
 }
